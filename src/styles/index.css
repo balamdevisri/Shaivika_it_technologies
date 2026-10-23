@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Enterprise Design System Palette */
+  --color-brand-dark: #070B14;
+  --color-brand-navy: #0A0F1D;
+  --color-brand-charcoal: #0F172A;
+  --color-brand-surface: #131D33;
+  --color-brand-surface-elevated: #18233C;
+  --color-brand-border: #1E293B;
+  --color-brand-border-subtle: #1E293B80;
+  
+  /* Electric Accent (Blue / Cyan) */
+  --color-accent-primary: #0284C7;
+  --color-accent-bright: #0EA5E9;
+  --color-accent-cyan: #38BDF8;
+  --color-accent-glow: #0EA5E920;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-brand-dark);
+    color: #F8FAFC;
+    overflow-x: hidden;
+  }
+
+  /* Accessible focus states across the app */
+  :focus-visible {
+    outline: 2px solid #38BDF8;
+    outline-offset: 2px;
+  }
+}
+
+/* Restrained enterprise background subtle grid */
+.tech-grid-bg {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.08) 0%, transparent 60%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+}
+
+/* Subtle dot matrix */
+.tech-dot-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Respect prefers-reduced-motion for all transitions */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
